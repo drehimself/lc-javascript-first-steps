@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background Color Selector</title>
+  <style>
+    .container {
+      margin: auto;
+      margin-top: 40px;
+      max-width: 600px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Background Color Selector</h2>
+
+    <div><input type="color" id="colorSelector"></div>
+
+    <div>
+      <button id="getRandomColor">Random BG Color</button>
+    </div>
+  </div>
+
+  <script>
+    const colorSelector = document.querySelector('#colorSelector');
+    const getRandomColor = document.querySelector('#getRandomColor');
+
+    function getRandomRgbValue() {
+      return Math.floor(Math.random() * 256);
+    }
+
+    colorSelector.addEventListener('input', event => {
+      document.body.style.backgroundColor = event.target.value;
+    })
+
+    getRandomColor.addEventListener('click', () => {
+      document.body.style.backgroundColor = `rgb(${getRandomRgbValue()}, ${getRandomRgbValue()}, ${getRandomRgbValue()})`;
+    })
+  </script>
+</body>
+</html>

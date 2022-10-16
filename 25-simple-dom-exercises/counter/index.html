@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter</title>
+  <style>
+    .container {
+      margin: auto;
+      margin-top: 40px;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .counter-value {
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Counter</h2>
+    <div class="counter-value" id="counter-value">0</div>
+    <div class="button-container">
+      <button id="decrement">Decrement</button>
+      <button id="increment">Increment</button>
+      <button id="reset">Reset</button>
+    </div>
+  </div>
+  <script>
+    const counterValueElement = document.querySelector('#counter-value');
+    const decrementButton = document.querySelector('#decrement');
+    const incrementButton = document.querySelector('#increment');
+    const resetButton = document.querySelector('#reset');
+    let count = 0;
+
+    function setColor() {
+      if (count > 0) {
+        counterValueElement.style.color = 'green';
+      } else if (count === 0) {
+        counterValueElement.style.color = 'black';
+      } else {
+        counterValueElement.style.color = 'red';
+      }
+    }
+
+    decrementButton.addEventListener('click', () => {
+      count = count - 1;
+      counterValueElement.textContent = count;
+      setColor();
+    });
+
+    incrementButton.addEventListener('click', () => {
+      count = count + 1;
+      counterValueElement.textContent = count;
+      setColor();
+    });
+
+    resetButton.addEventListener('click', () => {
+      count = 0
+      counterValueElement.textContent = count;
+      setColor();
+    });
+  </script>
+</body>
+</html>
